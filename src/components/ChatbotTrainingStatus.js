@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { AiOutlineCheckCircle, AiOutlineArrowRight } from "react-icons/ai";
+import { AiOutlineCheckCircle, AiOutlineArrowRight, AiOutlineRobot } from "react-icons/ai"; // Robot icon added
 import bgImage from "../assets/bg.jpg"; // Import the background image
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import Chatbot from "./ChatBot";
 
 const steps = [
   "Initializing System...",
@@ -28,7 +29,7 @@ const ChatbotTrainingStatus = () => {
     if (currentStep < steps.length) {
       const timer = setTimeout(() => {
         setCurrentStep((prevStep) => prevStep + 1);
-      }, 1500); // Delay each step by 1.5s
+      }, 1000); // Delay each step by 1s
       return () => clearTimeout(timer);
     } else {
       setTrainingComplete(true);
@@ -38,12 +39,15 @@ const ChatbotTrainingStatus = () => {
   return (
     <div>
       <Navbar />
-
+      <Chatbot />
       <div
-        className="flex items-center justify-center min-h-screen w-full bg-cover bg-center p-6 pt-16 lg:pt-24" // Add padding-top for larger screens
+        className="flex items-center justify-center min-h-screen w-full bg-cover bg-center p-6 pt-16 lg:pt-24"
         style={{ backgroundImage: `url(${bgImage})` }}
       >
-        <div className="bg-white bg-opacity-90 shadow-lg rounded-2xl p-6 w-full max-w-md text-center">
+        <div
+          className="bg-white bg-opacity-90 shadow-lg rounded-2xl p-6 w-full max-w-md text-center transform transition-all duration-1000 ease-in-out fold-page"
+          style={{ animation: 'foldIn 1s forwards' }} // Add fold-in animation
+        >
           <h2 className="text-2xl font-semibold text-gray-800 mb-4">Chatbot Training Status</h2>
 
           {/* Status Box */}
@@ -71,19 +75,24 @@ const ChatbotTrainingStatus = () => {
             ))}
           </ul>
 
-          {/* Proceed to Next Step Button (Animated) */}
-          {trainingComplete && (
-            <div className="flex justify-center mt-6">
+          {/* Blinking Robot Icon or Proceed Button */}
+          <div className="mt-6 flex justify-center">
+            {!trainingComplete ? (
+              <AiOutlineRobot
+                className="animate-blink mx-auto text-4xl text-gray-600"
+                size={40} // Adjust the size as needed
+              />
+            ) : (
               <button
                 onClick={() => navigate("/chatbot-integration")}
                 className="flex items-center gap-2 bg-black text-white px-4 py-2 rounded-full 
                          text-sm font-medium transition-all duration-500 ease-in-out transform 
-                         hover:scale-105 hover:bg-gray-900 active:scale-95"
+                         hover:scale-105 hover:bg-gray-900 active:scale-95 animate-burst"
               >
                 Proceed <AiOutlineArrowRight size={16} />
               </button>
-            </div>
-          )}
+            )}
+          </div>
         </div>
       </div>
 

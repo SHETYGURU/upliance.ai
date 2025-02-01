@@ -3,6 +3,7 @@ import { AiOutlineRobot, AiOutlineArrowRight, AiOutlineMail, AiOutlineCheck } fr
 import { useNavigate } from "react-router-dom";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import Chatbot from "./ChatBot";
 
 const ChatbotIntegrationTest = () => {
   const [isIntegrationSuccessful, setIsIntegrationSuccessful] = useState(null);
@@ -54,6 +55,7 @@ const ChatbotIntegrationTest = () => {
   return (
     <div>
       <Navbar />
+      <Chatbot/>
       <div
         className="relative flex flex-col items-center justify-center min-h-screen text-gray-900 p-6 bg-cover bg-center"
         style={{ backgroundImage: `url(${require('../assets/bg.jpg')})` }}

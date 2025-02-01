@@ -110,7 +110,7 @@ const CompanyWebsite = () => {
       </footer>
 
       {/* CSS Animations */}
-      <style>
+      <style> 
         {`
           @keyframes slideIn {
             from {

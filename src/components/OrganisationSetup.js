@@ -13,6 +13,7 @@ import { motion } from "framer-motion";
 import Dashboard from "./Dashboard";
 import bgImage from "../assets/bg.jpg";
 import Footer from "./Footer";
+import Chatbot from "./ChatBot";
 
 const OrganisationSetup = () => {
   const navigate = useNavigate();
@@ -64,6 +65,7 @@ const OrganisationSetup = () => {
     <div>
       <Navbar />
       <Dashboard />
+      <Chatbot/>
       <div
         className="relative min-h-screen flex flex-col items-center justify-center bg-cover bg-center bg-fixed"
         style={{ backgroundImage: `url(${bgImage})` }}
