@@ -20,32 +20,38 @@ const Login = () => {
     try {
       const result = await signInWithPopup(auth, provider);
       const user = result.user;
-
+  
       const userDoc = doc(db, "Users", user.email);
       const userSnap = await getDoc(userDoc);
-
+  
       if (!userSnap.exists()) {
         await setDoc(userDoc, {
           UserName: user.displayName,
           Email: user.email,
-          Phone: user.phone || "", // Make phone number optional
+          Phone: user.phoneNumber || "", // Optional phone number
+          EmailVerified: user.emailVerified, // Store email verification status
         });
+      } else {
+        // Update only the email verification status if the document exists
+        await setDoc(
+          userDoc,
+          { EmailVerified: user.emailVerified },
+          { merge: true } // Merge to avoid overwriting other fields
+        );
       }
-
-      localStorage.setItem("username", user.displayName ); 
-      localStorage.setItem("email", user.email); 
-
-   
-     
-        window.location.href = '/Dashboard';
-    
-
+  
+      localStorage.setItem("username", user.displayName);
+      localStorage.setItem("email", user.email);
+      localStorage.setItem("emailVerified", user.emailVerified);
+  
+      window.location.href = "/organisation-setup";
     } catch (error) {
-      console.error('Sign-in with Google error:', error.message);
+      console.error("Sign-in with Google error:", error.message);
     } finally {
       setLoading(false);
     }
   };
+  
 
   const handleEmailLogin = async (e) => {
     e.preventDefault();
@@ -57,8 +63,8 @@ const Login = () => {
     //   const userDoc = doc(db, "Users", user.email);
     //   const userSnap = await getDoc(userDoc);
 
-      localStorage.setItem("inputValue", user.email);
-      window.location.href = '/Dashboard';
+      localStorage.setItem("email", user.email);
+      window.location.href = '/organisation-setup';
     } catch (error) {
       console.error('Login error:', error.message);
     } finally {
@@ -70,7 +76,7 @@ const Login = () => {
     <div className="min-h-screen flex flex-col lg:flex-row justify-center items-center bg-white">
       {/* Left Section with Video */}
       <div className="hidden lg:block lg:w-2/5">
-      <h1 className="absolute top-5 left-5 text-xl font-bold text-white z-20">Gyan Grove</h1>
+      <h1 className="absolute top-5 left-5 text-xl font-bold text-white z-20">BeyondChats</h1>
 
         <video
           className="w-full h-full object-cover"
@@ -87,8 +93,8 @@ const Login = () => {
       <div className="w-full lg:w-2/3 p-8 flex items-center justify-center lg:pl-32 xl:pl-48">
         <div className="w-full max-w-sm">
           <div className="block lg:hidden mb-4 text-center">
-            <img src="/assets/logo.svg" alt="Company Logo" className="mx-auto mb-2" style={{ width: '100px', height: '100px' }} />
-            <h1 className="text-2xl font-bold">Gyan Grove</h1>
+            <img src="/assets/logo.png" alt="Company Logo" className="mx-auto mb-2" style={{ width: '100px', height: '100px' }} />
+            <h1 className="text-2xl font-bold">BeyondChats</h1>
           </div>
 
           <h2 className="text-xl font-semibold text-gray-700 text-center mb-6">

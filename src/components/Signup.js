@@ -33,14 +33,15 @@ const Signup = () => {
         await setDoc(userDoc, {
           UserName: user.displayName || username, 
           Email: user.email,
-          Phone: user.phone || "", // Optional phone
+          EmailVerified: user.emailVerified, // Store email verification status
+          Phone: user.phoneNumber || "",
         });
         console.log("User information saved to Firestore");
       } else {
         console.log("User already exists in Firestore");
       }
 
-      window.location.href = '/Dashboard';
+      window.location.href = '/organisation-setup';
     } catch (error) {
       console.error("Sign-in with Google error:", error.code, error.message);
     }
@@ -69,14 +70,15 @@ const Signup = () => {
         await setDoc(userDoc, {
           UserName: username,
           Email: user.email,
-          Phone: "", // Optional phone
+          EmailVerified: user.emailVerified, // Store email verification status
+          Phone: "",
         });
         console.log("User information saved to Firestore");
       } else {
         console.log("User already exists in Firestore");
       }
 
-      window.location.href = '/Dashboard';
+      window.location.href = '/organisation-setup';
     } catch (error) {
       console.error("Signup error:", error.code, error.message);
       setError(error.message);
@@ -86,7 +88,7 @@ const Signup = () => {
   return (
     <div className="min-h-screen flex flex-col lg:flex-row justify-center items-center bg-white">
       <div className="hidden lg:block lg:w-2/5 relative">
-        <h1 className="absolute top-5 left-5 text-xl font-bold text-white z-20">Gyan Grove</h1>
+        <h1 className="absolute top-5 left-5 text-xl font-bold text-white z-20">BeyondChats</h1>
         <video 
           className="w-full h-full object-cover z-10" 
           autoPlay 
@@ -102,8 +104,8 @@ const Signup = () => {
       <div className="w-full lg:w-2/3 flex items-center justify-center lg:pl-32 xl:pl-48 p-6">
         <div className="w-full max-w-md p-8 bg-white">
           <div className="block lg:hidden mb-4 text-center">
-            <img src="/assets/logo.svg" alt="Company Logo" className="mx-auto mb-2" style={{ width: '100px', height: '100px' }} />
-            <h1 className="text-2xl font-bold">Gyan Grove</h1>
+            <img src="/assets/logo.png" alt="Company Logo" className="mx-auto mb-2" style={{ width: '100px', height: '100px' }} />
+            <h1 className="text-2xl font-bold">BeyondChats</h1>
           </div>
           <h2 className="text-xl font-semibold text-gray-700 text-center mb-4">
             Create an Account
