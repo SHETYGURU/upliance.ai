@@ -11,16 +11,16 @@ const ChatbotIntegrationTest = () => {
   const [developerEmail, setDeveloperEmail] = useState("");
   const [showEmailField, setShowEmailField] = useState(false);
   const [websiteUrl, setWebsiteUrl] = useState("");
-  const [showSuccessDialog, setShowSuccessDialog] = useState(false); // State for success dialog
-  const [emailError, setEmailError] = useState(""); // Email validation error state
-  const [urlError, setUrlError] = useState(""); // URL validation error state
+  const [showSuccessDialog, setShowSuccessDialog] = useState(false); 
+  const [emailError, setEmailError] = useState(""); 
+  const [urlError, setUrlError] = useState(""); 
   const navigate = useNavigate();
 
   const handleTestIntegration = () => {
     if (!websiteUrl.trim()) {
       setIsIntegrationSuccessful(false);
-      setShowEmailField(true); // Show email field
-      setUrlError("Please enter a valid URL."); // URL error message
+      setShowEmailField(true); 
+      setUrlError("Please enter a valid URL."); 
     } else if (!/^(https?:\/\/)/.test(websiteUrl)) {
       setUrlError("URL should include a valid protocol (e.g., http:// or https://).");
       setIsIntegrationSuccessful(false);
@@ -28,9 +28,9 @@ const ChatbotIntegrationTest = () => {
       setUrlError("URL is missing a top-level domain (e.g., .com, .org).");
       setIsIntegrationSuccessful(false);
     } else {
-      setUrlError(""); // Clear URL error
+      setUrlError(""); 
       setIsIntegrationSuccessful(true);
-      setShowEmailField(false); // Hide email field
+      setShowEmailField(false); 
     }
   };
 
@@ -43,13 +43,13 @@ const ChatbotIntegrationTest = () => {
       return;
     }
 
-    setEmailError(""); // Clear email error
-    setShowSuccessDialog(true); // Show success dialog
+    setEmailError(""); 
+    setShowSuccessDialog(true); 
     setTimeout(() => {
-      setShowSuccessDialog(false); // Hide success dialog after 1.5 seconds
+      setShowSuccessDialog(false); 
     }, 1500);
     
-    setShowModal(false); // Close the modal after sending the email
+    setShowModal(false); 
   };
 
   return (
@@ -89,7 +89,6 @@ const ChatbotIntegrationTest = () => {
         />
         {urlError && <p className="text-red-500 text-sm mb-4">{urlError}</p>}
 
-        {/* Test Integration Button */}
         <button
           onClick={handleTestIntegration}
           className="bg-[#152238] text-white text-sm px-4 py-2 rounded-md hover:bg-gray-800 focus:ring-2 focus:ring-black transition-all duration-300"
@@ -97,7 +96,6 @@ const ChatbotIntegrationTest = () => {
           Test Integration
         </button>
 
-        {/* Email Field and Send Button (Conditionally Rendered) */}
         {showEmailField && (
           <div className="w-2/3 sm:w-1/2 md:w-1/3 flex items-center gap-4 mt-6">
             <input
@@ -117,7 +115,6 @@ const ChatbotIntegrationTest = () => {
         )}
         {emailError && <p className="text-red-500 text-sm mb-4">{emailError}</p>}
 
-        {/* Success / Failure Message */}
         {isIntegrationSuccessful !== null && (
           <div className="mt-10 w-full md:w-2/3 lg:w-1/2">
             {isIntegrationSuccessful ? (
@@ -142,7 +139,6 @@ const ChatbotIntegrationTest = () => {
           </div>
         )}
 
-        {/* Success Dialog with Animated Tick Mark */}
         {showSuccessDialog && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
             <div className="bg-white p-8 rounded-lg shadow-lg flex flex-col items-center">
@@ -154,7 +150,6 @@ const ChatbotIntegrationTest = () => {
           </div>
         )}
 
-        {/* Integration Modal */}
         {showModal && (
           <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center p-6">
             <div className="bg-white text-gray-900 p-6 rounded-lg shadow-lg max-w-md w-full">

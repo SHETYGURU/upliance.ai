@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { AiOutlineCheckCircle, AiOutlineArrowRight, AiOutlineRobot } from "react-icons/ai"; // Robot icon added
-import bgImage from "../assets/bg.jpg"; // Import the background image
+import bgImage from "../assets/bg.jpg"; 
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import Chatbot from "./ChatBot";
@@ -50,7 +50,6 @@ const ChatbotTrainingStatus = () => {
         >
           <h2 className="text-2xl font-semibold text-gray-800 mb-4">Chatbot Training Status</h2>
 
-          {/* Status Box */}
           <div className="bg-gray-100 p-4 rounded-lg mb-6">
             <strong className="block text-lg font-semibold text-gray-800">Status:</strong>
             <p className={`text-gray-600 ${trainingComplete ? "text-green-600 font-semibold" : ""}`}>
@@ -58,7 +57,6 @@ const ChatbotTrainingStatus = () => {
             </p>
           </div>
 
-          {/* Training Steps List */}
           <ul className="space-y-3 text-left">
             {steps.map((step, index) => (
               <li
@@ -75,12 +73,11 @@ const ChatbotTrainingStatus = () => {
             ))}
           </ul>
 
-          {/* Blinking Robot Icon or Proceed Button */}
           <div className="mt-6 flex justify-center">
             {!trainingComplete ? (
               <AiOutlineRobot
                 className="animate-blink mx-auto text-4xl text-gray-600"
-                size={40} // Adjust the size as needed
+                size={40} 
               />
             ) : (
               <button

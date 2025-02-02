@@ -1,13 +1,12 @@
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAiS9M6yQJKmzERVg0WGsr4yjvJyqneKug",
-  authDomain: "neina-8cf29.firebaseapp.com",
-  databaseURL: "https://neina-8cf29-default-rtdb.firebaseio.com",
-  projectId: "neina-8cf29",
-  storageBucket: "neina-8cf29.firebasestorage.app",
-  messagingSenderId: "484985941219",
-  appId: "1:484985941219:web:be307a2fdc946ef2b229d6",
-  measurementId: "G-MBMG5W2ZPV"
+  apiKey: "AIzaSyCF0qVIgcR0i6jNNhYFQQTnHCl99WdaLW4",
+  authDomain: "todo-list-ae666.firebaseapp.com",
+  projectId: "todo-list-ae666",
+  storageBucket: "todo-list-ae666.firebasestorage.app",
+  messagingSenderId: "540516612823",
+  appId: "1:540516612823:web:620b9dc15f4a8c2ba80e92",
+  measurementId: "G-FNY3NX8QNR"
 };
 
 export default firebaseConfig; 
