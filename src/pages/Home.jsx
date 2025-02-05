@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import { useSpring, animated } from "react-spring";
 import { FiPlus, FiUser, FiEdit } from "react-icons/fi"; // Icons for Counter, User Form, and Rich Text
 
