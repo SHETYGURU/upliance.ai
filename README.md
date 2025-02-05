@@ -3,6 +3,9 @@
 
 This React application serves as a dashboard that includes various components such as a **Counter**, **User Data Form**, and a **Rich Text Editor**. It also incorporates user authentication via Google Sign-In, and provides data persistence across sessions.
 
+## Live Demo
+###  You can view the live demo of this project [here(Live Demo)](https://uplianceaitest.netlify.app/).
+
 ## Tech Stack
 
 - **Frontend**:
