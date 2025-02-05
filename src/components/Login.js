@@ -44,7 +44,7 @@ const Login = () => {
       localStorage.setItem("email", user.email);
       localStorage.setItem("emailVerified", user.emailVerified);
   
-      window.location.href = "/organisation-setup";
+      window.location.href = "/Home";
     } catch (error) {
       console.error("Sign-in with Google error:", error.message);
     } finally {
@@ -64,7 +64,7 @@ const Login = () => {
     //   const userSnap = await getDoc(userDoc);
 
       localStorage.setItem("email", user.email);
-      window.location.href = '/organisation-setup';
+      window.location.href = '/Home';
     } catch (error) {
       console.error('Login error:', error.message);
     } finally {
@@ -76,7 +76,7 @@ const Login = () => {
     <div className="min-h-screen flex flex-col lg:flex-row justify-center items-center bg-white">
       {/* Left Section with Video */}
       <div className="hidden lg:block lg:w-2/5">
-      <h1 className="absolute top-5 left-5 text-xl font-bold text-white z-20">BeyondChats</h1>
+      <h1 className="absolute top-5 left-5 text-xl font-bold text-white z-20">Upliance.ai</h1>
 
         <video
           className="w-full h-full object-cover"
@@ -94,7 +94,7 @@ const Login = () => {
         <div className="w-full max-w-sm">
           <div className="block lg:hidden mb-4 text-center">
             <img src="/assets/logo.png" alt="Company Logo" className="mx-auto mb-2" style={{ width: '100px', height: '100px' }} />
-            <h1 className="text-2xl font-bold">BeyondChats</h1>
+            <h1 className="text-2xl font-bold">Upliance.ai</h1>
           </div>
 
           <h2 className="text-xl font-semibold text-gray-700 text-center mb-6">

@@ -1,78 +1,63 @@
 
-# Chatbot Setup UI/UX
+# React Dashboard Application
 
-This project provides the UI/UX for setting up a new chatbot for businesses, ensuring smooth registration, organization setup, chatbot training, and integration. The following steps outline the process and provide a user-friendly experience for both business owners and developers.
-
-## Live Demo
-###  You can view the live demo of this project [here(Live Demo)](https://beyondchatssite.netlify.app/).
-
-
-## Features
-
-1. **User Registration**
-   - User can register using email or Google.
-
-2. **Setup Organization**
-   - User enters company information, including company name, website URL, and description.
-   - Auto-fetch meta-description from the provided website URL.
-   - Display detected webpages that have been scraped, with a status of scraped or pending.
-   - Ability to click on each webpage to view the data chunks scraped from that webpage.
-   - Option to wait for chatbot training or continue to the next section.
-
-3. **Chatbot Integration & Testing**
-   - Buttons for testing the chatbot, integrating the chatbot into the website, and viewing success or failure statuses.
-   - Easy-to-follow instructions for integrating the chatbot with the website, including an option to email the instructions to the client’s developer.
-   - UI with success feedback when the chatbot integration is successful.
-
-## Steps to Setup
-
-### 1. User Registration
-   - **UI Design:**
-     - A form where the user enters their name, email, and password.
-     - A button to allow users to "Continue with Google" for quicker registration.
-     - Upon email submission, the user must submit an email verification code.
-
-### 2. Setup Organization
-   - **UI Design:**
-     - A form where the user enters:
-       - Company name.
-       - Company website URL.
-       - Company description.
-     - Bonus point: The website meta-description is automatically fetched using the provided URL.
-     - After submission, display the status of webpages that have been scraped, showing:
-       - Scraped pages.
-       - Pending pages.
-     - Allow the user to click on each webpage to view the data chunks that have been scraped from that page.
-
-### 3. Chatbot Integration & Testing
-   - **UI Design:**
-     - Three main buttons on the screen:
-       1. **Test Chatbot:** Opens the client’s website with a dummy chatbot integration displayed at the bottom right.
-       2. **Integrate on Your Website:** 
-          - Displays easy-to-follow instructions for integrating the chatbot into the website.
-          - Option to email the integration instructions to the client’s developer.
-       3. **Test Integration:** Opens a new screen showing a success message (e.g., Confetti UI) when integration is successful.
-
-   - **Success UI:**
-     - After successful integration:
-       - Show buttons for:
-         - "Explore Admin Panel."
-         - "Start talking to your chatbot."
-         - Social media sharing buttons.
-     - **Failure UI:** If integration fails, provide a message indicating that the integration was not detected yet.
+This React application serves as a dashboard that includes various components such as a **Counter**, **User Data Form**, and a **Rich Text Editor**. It also incorporates user authentication via Google Sign-In, and provides data persistence across sessions.
 
 ## Tech Stack
 
-- **Frontend:**
-  - React.js
+- **Frontend**:
+  - React.js (for building the user interface)
+  - React-Router (for page navigation)
+  - React-Spring (for animations)
+  - React-Icons (for icons)
+  - Redux Toolkit (RTK) for state management
   - Tailwind CSS (for styling)
-  - Firebase (for email verification and user registration)
-  - Axios (for API calls to fetch data)
+  - Google Firebase Authentication (for user sign-in)
 
--
+- **Additional Libraries/Tools**:
+  - Local Storage (for data persistence in the User Data Form)
 
-## Acknowledgements
+## Functional Requirements
 
-- Tailwind CSS for UI styling.
-- Firebase for user authentication and real-time database.
-- React.js for building the frontend.
+### 1. **Counter Component**
+   - **Buttons**:
+     - Increment
+     - Decrement
+     - Reset
+   - **State Management**: The count should persist across re-renders and update the background color level.
+   - **Background Animation**: The background color level should increase in a linear manner, preferably with a bezier curve.
+   - **Reset**: Clicking the reset button should reset the background color level to 0.
+
+### 2. **User Data Form**
+   - **Fields**:
+     - Name
+     - Address
+     - Email
+     - Phone
+   - **Auto-generation**: Automatically generate a User ID upon form submission.
+   - **Persistence**: Save form data to either local storage or Redux Toolkit (RTK).
+   - **Unsaved Changes Alert**: If there are unsaved changes, an alert should appear when trying to close the browser.
+
+### 3. **Rich Text Editor**
+   - **Display User Data**: Visualize user data in a rich text editor.
+   - **Formatting Options**:
+     - Bold
+     - Italic
+     - Underline
+     - Lists (ordered and unordered)
+   - **Data Persistence**: Ensure the text editor's content is saved and persists.
+
+### 4. **Additional Features (Optional)**:
+   - **User Authentication**:
+     - Implement Google Sign-In for user authentication.
+
+## Features
+
+- **Counter Component**: A simple counter with buttons for increment, decrement, and reset. The background color of the component changes as the count increases, following a linear bezier curve animation.
+  
+- **User Data Form**: A form to collect user details like name, address, email, and phone. It generates a unique User ID upon submission and saves the data to local storage or RTK. If there are unsaved changes, a pop-up alert will notify users before they try to close the browser.
+
+- **Rich Text Editor**: A rich text editor that allows users to format their data with options such as bold, italic, underline, and lists. The data is persisted, so users can continue editing where they left off.
+
+- **Authentication**: Google Sign-In authentication has been integrated, allowing users to sign up and log in securely.
+

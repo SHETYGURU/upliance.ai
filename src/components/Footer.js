@@ -9,7 +9,7 @@ const Footer = () => {
         {/* Left Section: Company Logo & Name */}
         <div className="flex items-center gap-4">
           <img src={companyLogo} alt="Company Logo" className="h-16 w-16 object-contain" />
-          <h2 className="text-xl font-bold">BeyondChats</h2>
+          <h2 className="text-xl font-bold">Upliance.ai</h2>
         </div>
 
         {/* Middle Section: Quick Links */}
@@ -34,7 +34,7 @@ const Footer = () => {
               <FaPhone /> +1 234 567 890
             </li>
             <li className="flex items-center gap-2">
-              <FaEnvelope /> support@beyondchats.com
+              <FaEnvelope /> support@Upliance.ai.com
             </li>
           </ul>
         </div>
@@ -49,7 +49,7 @@ const Footer = () => {
       </div>
 
       <div className="border-t border-gray-600 mt-6 pt-4 text-center text-sm">
-        &copy; {new Date().getFullYear()} BeyondChats. All Rights Reserved.
+        &copy; {new Date().getFullYear()} Upliance.ai. All Rights Reserved.
       </div>
     </footer>
   );

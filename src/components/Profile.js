@@ -3,7 +3,6 @@ import Navbar from "./Navbar";
 import { getFirestore, doc, getDoc } from "firebase/firestore";
 import { initializeApp } from "firebase/app";
 import firebaseConfig from "./connection_db";
-import Footer from "./Footer";
 
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
@@ -45,12 +44,8 @@ const Profile = () => {
   }, []);
 
   return (
-    <div
-      className="bg-cover bg-center"
-      style={{ backgroundImage: `url(${require('../assets/bg.png')})` }} 
-    >
-      <Navbar />
-      <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 bg-opacity-60">
+
+      <div className="flex flex-col items-center justify-center min-h-screen bg-white bg-opacity-60">
         {/* Profile GIF */}
         <img
           src="/assets/profile.gif"
@@ -63,8 +58,7 @@ const Profile = () => {
           <p className="text-gray-600">{user.email}</p>
         </div>
       </div>
-      <Footer />
-    </div>
+   
   );
 };
 

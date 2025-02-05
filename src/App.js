@@ -1,34 +1,33 @@
-import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Login from './components/Login';
-import Signup from './components/Signup';
-import ForgotPassword from './components/ForgotPassword';
-import Profile from './components/Profile';
-import OrganisationSetup from './components/OrganisationSetup'; // New Component
-import ChatbotTrainingStatus from './components/ChatbotTrainingStatus'; // New Component
-import ChatbotIntegrationTest from './components/ChatbotIntegrationTest'; // New Component for testing chatbot integration
-import CompanyWebsite from './components/CompanyWebsite';
-import Footer from './components/Footer';
-
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
+import CounterPage from "./pages/CounterPage";
+import UserFormPage from "./pages/UserFormPage";
+import RichTextEditorPage from "./pages/RichTextEditorPage";
+import Profile from "./components/Profile";
+import Login from "./components/Login";
+import Signup from "./components/Signup";
+import ForgotPassword from "./components/ForgotPassword";
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/forgot-password" element={<ForgotPassword />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/footer" element={<Footer />} />
-        
-        {/* New Routes for Organisation Setup and Chatbot Training */}
-        <Route path='/organisation-setup' element={<OrganisationSetup />} />
-        <Route path='/chatbot-training' element={<ChatbotTrainingStatus />} />
-        
-        {/* Optional: Route for Chatbot Integration Test */}
-        <Route path='/chatbot-integration' element={<ChatbotIntegrationTest />} />
-        <Route path="/company-website" element={<CompanyWebsite />} />
-      </Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/Signup" element={<Signup/>} />
+          <Route path="/Login" element={<Login/>} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+
+        </Routes>
+      <Navbar />
+      <div className="container mx-auto p-6">
+        <Routes>
+          <Route path="/profile" element={<Profile/>} />
+          <Route path="/Home" element={<Home/>} />
+          <Route path="/counter" element={<CounterPage />} />
+          <Route path="/user-form" element={<UserFormPage />} />
+          <Route path="/rich-text" element={<RichTextEditorPage />} />
+        </Routes>
+      </div>
     </Router>
   );
 }
